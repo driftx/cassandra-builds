@@ -35,7 +35,7 @@ Prior to release, make sure to edit:
 
 For the build by Debian Bullseye, you have the possibility to build Cassandra either by Java 8 (default) or by Java 11. You control the Java version like following. If you want to build with Java 8, just omit that last option.
 
-```docker run --rm -v `pwd`/dist:/dist `docker images -f label=org.cassandra.buildenv=buster -q` /home/build/build-debs.sh <branch/tag> 11```
+```docker run --rm -v `pwd`/dist:/dist `docker images -f label=org.cassandra.buildenv=bullseye -q` /home/build/build-debs.sh <branch/tag> 11```
 
 You should find newly created Debian and RPM packages in the `dist` directory.
 
