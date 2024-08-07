@@ -31,6 +31,12 @@ command -v createrepo_c >/dev/null 2>&1 || { echo >&2 "createrepo_c needs to be 
 command -v mvn >/dev/null 2>&1 || { echo >&2 "mvn needs to be installed"; exit 1; }
 (docker info >/dev/null 2>&1) || { echo >&2 "docker needs to running"; exit 1; }
 
+if grep -q '^artifact.remoteRepository.apacheSnapshot' build.properties.default
+then
+    echo "You cannot release with a snapshot repository enabled in build.properties.default"
+    exit 1
+fi
+
 ###################
 asf_git_repo="https://gitbox.apache.org/repos/asf"
 staging_repo="https://repository.apache.org/content/repositories"
