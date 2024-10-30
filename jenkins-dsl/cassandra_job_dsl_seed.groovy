@@ -1480,6 +1480,11 @@ multibranchPipelineJob('cassandra-java-driver') {
             repoOwner('apache')
               repository('cassandra-java-driver')
         }
+        buildStrategies {
+            buildChangeRequests {
+                ignoreTargetOnlyChanges(true)
+            }
+        }
     }
       factory {
         workflowBranchProjectFactory {
